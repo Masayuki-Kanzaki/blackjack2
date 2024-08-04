@@ -1,8 +1,8 @@
 package src.main.java.blackjack;
 
 public enum CardRank {
-    // Aceのポイントは２つとりえるため、ここではポイントが決まらない
-    ace(),
+    // Aceのポイントは２つとりえるため、ここではポイントが決まらないが、0を仮置きする
+    ace(0),
     two(2),
     three(3),
     four(4),
@@ -20,10 +20,6 @@ public enum CardRank {
 
     private CardRank(int point) {
 	    this.point = point;
-    }
-
-    // Ace用
-    private CardRank() {
     }
 
     public int getPoint() {

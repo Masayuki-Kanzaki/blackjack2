@@ -1,6 +1,7 @@
 package src.main.java.blackjack;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Hand {
@@ -14,15 +15,21 @@ public class Hand {
     public Hand () {
         this.cards = new ArrayList<>();
     }
-/* 
+
+    public Hand(List<Card> cards) {
+        this.cards = new ArrayList<>(cards);
+    }
+    /* 
     public Hand add(Card card) {
         List<Card> result = new ArrayList<>(cards);
         result.add(card);
         return new Hand(result);
     }
 */
-    public void addCard(Card card) {
-        cards.add(card);
+    public Hand addCard(Card card) {
+        List<Card> newHand = new LinkedList<>(this.cards);
+        newHand.add(card);
+        return new Hand(newHand);
     }
  
     public void showCards() {
@@ -94,7 +101,7 @@ public class Hand {
     public boolean isBust() {
         return bust;
     }
-
+ 
     public boolean isBlackjack() {
         return blackjack;
     }

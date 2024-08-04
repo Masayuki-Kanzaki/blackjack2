@@ -20,9 +20,8 @@ public class Deck {
         shuffle();
     }
 
-    public void addCard(Card card) {
-        // unit test用
-        deck.add(card);
+    public Deck(List<Card> deck) {
+        this.deck = new LinkedList<>(deck);
     }
 
     public void shuffle() {
@@ -31,7 +30,20 @@ public class Deck {
 
     public Card drawCard() {
         Card card = deck.get(0);
-        deck.remove(0);
         return card;
     }
+
+    public Deck removeCard() {
+        List<Card> newDeck = new LinkedList<>(this.deck);
+        newDeck.remove(0);
+        return new Deck(newDeck);
+    }
+
+    // unit test用
+    public Deck addCard(Card card) {
+        List<Card> newDeck = new LinkedList<>(this.deck);
+        newDeck.add(card);
+        return new Deck(newDeck);
+    }
+
 }

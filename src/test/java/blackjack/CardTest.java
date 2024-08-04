@@ -20,6 +20,8 @@ public class CardTest {
         Assert.assertEquals(2, card2.getCardRankPoint());
         Card cardAce = new Card(CardRank.ace, CardSuit.Hearts);
         Assert.assertEquals(0, cardAce.getCardRankPoint());
+        Card cardJack = new Card(CardRank.jack, CardSuit.Hearts);
+        Assert.assertEquals(10, cardJack.getCardRankPoint());
     }
 
     @Test

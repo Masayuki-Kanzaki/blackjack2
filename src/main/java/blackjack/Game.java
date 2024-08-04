@@ -20,21 +20,26 @@ public class Game {
 
     private void dealInitialCards() {
         player.addCard(deck.drawCard());
+        deck = deck.removeCard();
         player.addCard(deck.drawCard());
+        deck = deck.removeCard();
         player.sumPoints();
         System.out.println("Player's hand: ");
         player.showCards();
 
         dealer.addCard(deck.drawCard());
+        deck = deck.removeCard();
         System.out.println("Dealer's  hand: ");
         dealer.showCards();
         dealer.addCard(deck.drawCard());
+        deck = deck.removeCard();
         dealer.sumPoints();
     }
 
     private void dealerTurn() {
-        while (!dealer.isDealerHandSeventeenOrMore()) {
+        while (!dealer.isDealerHandSeventeenOrMore() && !dealer.isBlackjack()) {
             dealer.addCard(deck.drawCard());
+            deck = deck.removeCard();
             dealer.sumPoints();
         }
         System.out.println("Dealer's hand: ");
@@ -95,6 +100,7 @@ public class Game {
 
             if (action.equalsIgnoreCase("hit")) {
                 player.addCard(deck.drawCard());
+                deck = deck.removeCard();
                 player.sumPoints();
                 System.out.println("Player's hand: ");
                 player.showCards();

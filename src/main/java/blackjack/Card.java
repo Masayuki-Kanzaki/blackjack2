@@ -23,7 +23,7 @@ public class Card {
     public int getCardRankPoint() {
         return rank.getPoint();
     }
-
+/* 
     public CardRank getCardRank() {
         return rank;
     }
@@ -31,7 +31,7 @@ public class Card {
     public CardSuit getCardSuit() {
         return suit;
     }
-
+*/
     @Override
     public String toString() {
         return "Card: " + rank + " of " + suit;
