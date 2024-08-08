@@ -19,13 +19,7 @@ public class Hand {
     public Hand(List<Card> cards) {
         this.cards = new ArrayList<>(cards);
     }
-    /* 
-    public Hand add(Card card) {
-        List<Card> result = new ArrayList<>(cards);
-        result.add(card);
-        return new Hand(result);
-    }
-*/
+
     public Hand addCard(Card card) {
         List<Card> newHand = new LinkedList<>(this.cards);
         newHand.add(card);
@@ -73,11 +67,7 @@ public class Hand {
         }
         return points;
     }
-/* 
-    public boolean isAboveTwentyOne() {
-        return bust;
-    }
-*/
+
     public int sumPoints() {
         int points = sumPointsWithoutAce();
         for (int i = 0; i < countAce(); i++) {
