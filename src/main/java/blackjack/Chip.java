@@ -34,4 +34,20 @@ public class Chip {
     public String toString() {
         return "[ chip = " + value + "]";
     }
+
+    public boolean canSubtract(Chip other) {
+        int subtracted = subtractValue(other);
+        return subtracted >= MIN;
+    }
+
+    public Chip subtract(Chip other) {
+        if ( ! canSubtract(other) ) {throw new
+            IllegalArgumentException("INVALID: Total is less than " + MIN);}
+        int subtracted = subtractValue(other);
+        return new Chip(subtracted);
+    }
+
+    private int subtractValue(Chip other) {
+        return this.value - other.value;
+    }
 }
